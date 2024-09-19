@@ -1,0 +1,130 @@
+html, body, #app {
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+#app {
+  display: grid;
+  grid-template-areas: 
+      "header header header"
+      "left main right"
+      "left bottom right"
+      "footer footer footer";
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 100%;
+}
+
+header, nav, main, aside, section, footer {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+header {
+  grid-area: header;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+nav {
+  grid-area: left;
+  background-color: peachpuff;
+}
+
+main {
+  grid-area: main;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+main > * {
+  max-height: 90%;
+  max-width: 90%;
+}
+
+aside {
+  grid-area: right;
+  background-color: peachpuff;
+}
+
+section {
+  grid-area: bottom;
+  background-color: beige;
+}
+
+footer {
+  grid-area: footer;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.companyNameLbl {
+  margin-left: 10vw;
+  font-size: 28px;
+}
+
+.contentLbl {
+  font-size: 18px;
+}
+
+.mainLbl {
+  font-size: 32px;
+}
+
+nav > ul {
+  list-style-type: none;
+  height: 50%;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  #app {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "left"
+        "main"
+        "right"
+        "bottom"
+        "footer";
+    grid-template-rows: 200px 60% 60% 70% 10% 200px;
+    grid-template-columns: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  #app {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "left main right"
+        "left bottom right"
+        "footer footer right";
+    grid-template-rows: 200px 7fr 1fr 200px;
+    grid-template-columns: 20% 60% 20%;
+  }
+}
